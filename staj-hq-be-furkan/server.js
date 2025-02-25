@@ -16,7 +16,7 @@ const io = require("socket.io")(
 
 const axios = require("axios");
 
-const LOGIN_API_URL = "http://localhost:4000/api/login";
+const LOGIN_API_URL = "http://localhost:5001/api/auth/login";   // backednndeki login url
 
 
 
