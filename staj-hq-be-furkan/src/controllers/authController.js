@@ -51,7 +51,7 @@ const userLogin= async (req,res)=>{
         }
 
         if(user.mustChangePassword){
-            return res.status(403).json({message:"Şifrenizi ilk girişte değiştirmeniz gerekiyor.", redirect:"/api/auth/change-userpassword"});
+            return res.status(403).json({message:"Şifrenizi ilk girişte değiştirmeniz gerekiyor.", mustChangePassword:user.mustChangePassword, redirect:"/api/auth/change-userpassword"});
         }
 
         res.status(200).json({message:"Giriş Başarılı!"});

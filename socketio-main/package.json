@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "How to run socket.io with restify",
   "main": "index.js",
-  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -12,8 +11,10 @@
   "license": "ISC",
   "dependencies": {
     "dotenv": "^16.4.7",
+    "express": "^4.21.2",
     "restify": "^11.1.0",
     "socket.io": "^4.8.1",
-    "socket.io-client": "^4.8.1"
+    "socket.io-client": "^4.8.1",
+    "socketio-with-restify": "file:"
   }
 }
