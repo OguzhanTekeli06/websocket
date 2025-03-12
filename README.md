@@ -90,6 +90,36 @@ ACCESS_TOKEN_SECRET = 8752fb030dad0e1a6a02134ad2df59aea818af2da8dc2ac364723abdc1
 
 REFRESH_TOKEN_SECRET = 44dc1bf900dfea0d307f350fabba1edb8cda08d947db8b885e70e1daf3f96bd8
 
+
+
+
+async function kullanicibilgi(req, res, next) {
+    try {
+        const { email, password } = req.body; // İstekten e-posta ve şifre bilgilerini al
+        const responses = await io.timeout(2000).emitWithAck("login", { email, password }); // Tüm istemcilerde 'login' olayını tetikle ve yanıtları bekle.
+        
+        console.log('Received responses:', responses);
+
+        // Yanıtı döndür
+        res.json({
+            success: true,
+            data: responses
+        });
+    } catch (error) {
+        console.error('Error or timeout:', error);
+
+        // Hata durumunda bir yanıt dön
+        res.status(500).json({
+            success: false,
+            message: 'Error or timeout occurred',
+            error: error.message // Hata mesajını ekle
+        });
+    }
+
+    // Middleware zinciri için next'i çağır
+    return next();
+}
+
 TEMP_TOKEN_SECRET = 303dccd2e7ef99baad309365142fcbb68ba6ca11211d05bb0c1ecb3d65ab4ede
 
 ACCESS_EXPIRES_IN = 3h
