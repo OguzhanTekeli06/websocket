@@ -79,3 +79,19 @@ io.on("connection", (socket) => {
         }
     });
 });
+
+
+
+MONGO_URI = "mongodb://localhost:27017/hvl-staj"
+
+PORT = 5000
+
+ACCESS_TOKEN_SECRET = 8752fb030dad0e1a6a02134ad2df59aea818af2da8dc2ac364723abdc10c9893NPM
+
+REFRESH_TOKEN_SECRET = 44dc1bf900dfea0d307f350fabba1edb8cda08d947db8b885e70e1daf3f96bd8
+
+TEMP_TOKEN_SECRET = 303dccd2e7ef99baad309365142fcbb68ba6ca11211d05bb0c1ecb3d65ab4ede
+
+ACCESS_EXPIRES_IN = 3h
+
+REFRESH_EXPIRES_IN = 3d
